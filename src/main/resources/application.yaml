@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: flow-manager
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/files/**
