@@ -11,3 +11,18 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/api/v1/files/**
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: apigateway
+            client-secret: Dix7IuQTWIr5YNSPqH8sWZlFM4z1zv1o
+            client-name: apigateway
+            authorization-grant-type: authorization_code
+            scope: openid, profile, email
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/apigateway
